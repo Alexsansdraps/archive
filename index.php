@@ -60,5 +60,31 @@
         </form>
         <a href="document.php">Voir</a>
 
+        <h2>Ajouter Zone</h2>
+
+        <form method="post" action="add.php">
+                <table>
+                    <tr>
+                        <td>nom</td>
+                        <td><input type="text" name="nomZone" placeholder="Ex : Normandie"></td>
+                    </tr>
+                </table>
+            <button type="submit">Envoyer</button>
+        </form>
+        <a href="zone.php">Voir</a>
+
+        <h2>Ajouter Etagère</h2>
+
+        <form method="post" action="add.php">
+                <table>
+                    <tr>
+                        <td>nom</td>
+                        <td><input type="text" name="nomEtagere" placeholder="Ex : Normandie"></td>
+                    </tr>
+                </table>
+            <button type="submit">Envoyer</button>
+        </form>
+        <a href="etagere.php">Voir</a>
+
     </body>
 
