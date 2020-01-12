@@ -53,8 +53,27 @@
                 <table>
                     <tr>
                         <td>nom</td>
+
                         <td><input type="text" name="nomDocument" placeholder="Ex : Normandie"></td>
+
+                      
                     </tr>
+
+
+<?php 
+ 
+$sql = "SELECT id_etagere, nomEtagere FROM etagere";
+$statement = $bdd->prepare($sql);
+$statement->execute();
+// var_dump($statement);
+
+?>
+
+                    <select name="doc" id="doc_select" name="select_id">
+                    <?php foreach ($statement as $row) { ?>
+                        <option value="<?php echo $row['id_etagere']; ?>"><?php echo $row['id_etagere']; ?> étagère nom : <?php echo $row['nomEtagere']; ?></option>
+                    <?php } ?>
+                    </select>
                 </table>
             <button type="submit">Envoyer</button>
         </form>

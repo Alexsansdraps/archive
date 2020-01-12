@@ -15,11 +15,11 @@
             include 'connexion.php';  
              
             $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage');
-            $zoness=$sel->fetchAll();
+            $zoness = $sel->fetchAll();
             foreach($zoness as $zone){
                 ?>
-                  <p><?php echo $zone['nomZone'];?></p>
-                  <p><?php echo $zone['nomStockage'];?></p>
+                  <p><?= $zone['nomZone'];?></p>
+                  <p><?= $zone['nomStockage'];?></p>
                                   
         <?php
             };

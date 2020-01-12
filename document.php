@@ -15,11 +15,11 @@
             include 'connexion.php';  
              
             $sel = $bdd->query('SELECT nomDocument, nomEtagere FROM document LEFT JOIN etagere ON document.id_document = etagere.id_etagere');
-            $documents=$sel->fetchAll();
+            $documents = $sel->fetchAll();
             foreach($documents as $document){
                 ?>
-                  <p><?php echo $document['nomDocument'];?></p>
-                  <p><?php echo $document['nomEtagere'];?></p>
+                  <p><?= $document['nomDocument'];?></p>
+                  <p><?= $document['nomEtagere'];?></p>
                                   
         <?php
             };

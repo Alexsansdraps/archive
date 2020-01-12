@@ -15,11 +15,11 @@
             include 'connexion.php';  
              
             $sel = $bdd->query('SELECT nomEtagere, nomZone FROM etagere LEFT JOIN zone ON etagere.id_etagere = zone.id_zone');
-            $etageres=$sel->fetchAll();
+            $etageres = $sel->fetchAll();
             foreach($etageres as $etagere){
                 ?>
-                  <p><?php echo $etagere['nomEtagere'];?></p>
-                  <p><?php echo $etagere['nomZone'];?></p>
+                  <p><?= $etagere['nomEtagere'];?></p>
+                  <p><?= $etagere['nomZone'];?></p>
                                   
         <?php
             };
