@@ -18,7 +18,7 @@ $req->execute(array(
 
     
 ));
-//  header("location:index.php");
+  header("location:index.php");
 ?>
   <?php
 // $nomDocument = $_POST['nomDocument'];
