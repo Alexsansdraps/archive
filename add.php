@@ -31,7 +31,7 @@ $req->execute(array(
 //       'nomDocument' => $nomDocument,
 //       'id_etagere' => $id_etagere
 //       // ':nomdoc' => $_POST['nomDocument']
-  ]);
+  //]);
   ?>
 <?php
 
@@ -42,6 +42,6 @@ $req->execute(array(
 //     'nomDocument' => $nomdoc,
 
 // ));
- header("location:index.php");
+// header("location:index.php");
 
 ?>
