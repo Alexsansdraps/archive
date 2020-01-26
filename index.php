@@ -18,6 +18,7 @@
         <li><a href="admin.php">Admin</a></li>
     </ul>
     <h1>Archive Dep08</h1>
+    <!-- ajouter personne-->
     <h2>Ajouter Personne</h2>
 
     <form method="post" action="add-person.php">
@@ -106,16 +107,30 @@
         <button type="submit">Envoyer</button>
     </form>
     <a href="zone.php">Voir</a>
-
+<!--ajouter etagere-->
     <h2>Ajouter Etagère</h2>
 
-    <form method="post" action="add.php">
-        <table>
-            <tr>
-                <td>nom</td>
-                <td><input type="text" name="nomEtagere" placeholder="Ex : Normandie"></td>
-            </tr>
-        </table>
+    <form method="post" action="add-etagere.php">
+    <p>Sélectionner votre zone</p>
+        <?php
+            $sql = "SELECT id_zone, nomZone FROM zone";
+            $zone = $bdd->prepare($sql);
+            $zone->execute();
+                      
+        ?>
+
+                  <select name="etagere" id="etagere_select">
+                      <?php foreach ($zone as $rowz) { ?>
+                      <option value=" <?php echo $rowz['id_zone']; ?> ">
+                        <?php echo $rowz['id_zone']; ?>
+                        Zone nom :
+                        <?php echo $rowz['nomZone']; ?>
+                      </option>
+                      <?php } ?>
+                  </select>
+                <p>nom</p>
+                <input type="text" name="nomEtagere" placeholder="Ex : Normandie">
+            
         <button type="submit">Envoyer</button>
     </form>
     <a href="etagere.php">Voir</a>

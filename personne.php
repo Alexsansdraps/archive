@@ -18,12 +18,13 @@
             $personnes=$sel->fetchAll();
             foreach($personnes as $personne){
                 ?>
+                <table>
                   <p><?php echo $personne['nomPersonne'];?></p>
                   <p><?php echo $personne['prenomPersonne'];?></p>
                   <p><?php echo $personne['adresse'];?></p>
                   <p><?php echo $personne['mail'];?></p>
                   <p><?php echo $personne['telephone'];?></p>
-                      
+                </table>      
         <?php
             };
         ?>
