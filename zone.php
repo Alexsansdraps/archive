@@ -27,6 +27,4 @@
 
     </body>
 
-    d'accord, etape 1) tu sais que tu veux ajouter un document, donc tu doit faire un form, ensuite quel champs que tu veux dans ton form. 
-    etape 2, tu veux ajouter  en meme temps sur l'etagère, moi j'aurai fait une requetes pour prendre
-    tout les etages, et le mettre dans un select de tout les étages dedans, en gros tu aurai un select, avec une boucle d'une requetes qui affiche tout les étages.
+    
