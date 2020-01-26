@@ -11,6 +11,15 @@
     <body>
         
         <h1>Liste des personnes</h1>
+
+        <table>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Mail</th>
+                        <th>Téléphone</th>
+                    </tr>
         <?php
             include 'connexion.php';  
              
@@ -18,16 +27,20 @@
             $personnes=$sel->fetchAll();
             foreach($personnes as $personne){
                 ?>
-                <table>
-                  <p><?php echo $personne['nomPersonne'];?></p>
-                  <p><?php echo $personne['prenomPersonne'];?></p>
-                  <p><?php echo $personne['adresse'];?></p>
-                  <p><?php echo $personne['mail'];?></p>
-                  <p><?php echo $personne['telephone'];?></p>
-                </table>      
+                
+
+                    <tr>
+                        <td><?php echo $personne['nomPersonne'];?></td>
+                        <td><?php echo $personne['prenomPersonne'];?></td>
+                        <td><?php echo $personne['adresse'];?></td>
+                        <td><?php echo $personne['mail'];?></td>
+                        <td><?php echo $personne['telephone'];?></td>
+                    </tr>
+                     
         <?php
             };
         ?>
+        </table> 
         
         
         
