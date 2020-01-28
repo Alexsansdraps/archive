@@ -9,6 +9,10 @@
     </head>
 
     <body>
+    <ul class="index">
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="admin.php">Admin</a></li>
+    </ul>
         
         <h1>Liste des zones</h1>
         <?php

@@ -9,6 +9,10 @@
     </head>
 
     <body>
+    <ul class="index">
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="admin.php">Admin</a></li>
+    </ul>
         
         <h1>Liste des personnes</h1>
 
@@ -26,23 +30,17 @@
             $sel = $bdd->query('SELECT * FROM personne');
             $personnes=$sel->fetchAll();
             foreach($personnes as $personne){
-                ?>
-                
-
+                ?>              
                     <tr>
                         <td><?php echo $personne['nomPersonne'];?></td>
                         <td><?php echo $personne['prenomPersonne'];?></td>
                         <td><?php echo $personne['adresse'];?></td>
                         <td><?php echo $personne['mail'];?></td>
                         <td><?php echo $personne['telephone'];?></td>
-                    </tr>
-                     
+                    </tr>            
         <?php
             };
         ?>
         </table> 
         
-        
-        
-
     </body>

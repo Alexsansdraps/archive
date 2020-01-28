@@ -20,27 +20,3 @@ $req->execute(array(
 ));
   header("location:index.php");
 ?>
-  <?php
-// $nomDocument = $_POST['nomDocument'];
-// $id_etagere = $_POST['id_etagere'];
-//   $req = $bdd->prepare("INSERT INTO document (nomDocument, id_etagere) VALUES(:nomDocument, id_etagere)");
-
-//   $req->execute([
-//       // ':selectId' => $_POST['selectId'],
-//       'nomDocument' => $nomDocument,
-//       'id_etagere' => $id_etagere
-//       // ':nomdoc' => $_POST['nomDocument']
-  //]);
-  ?>
-<?php
-
-
-
-// $reqs = $bdd->prepare('INSERT INTO document (nomDocument) VALUES (:nomDocument)');
-// $reqs->execute(array(
-//     'nomDocument' => $nomdoc,
-
-// ));
-// header("location:index.php");
-
-?>
