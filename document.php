@@ -13,20 +13,29 @@
         <li><a href="index.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
     </ul>
+
+    <table>
+                    <tr>
+                        <th>Nom du document</th>
+                        <th>Nom de l'étagère</th>
+                    </tr>
         
         <h1>Liste des documents</h1>
         <?php
             include 'connexion.php';  
              
-            $sel = $bdd->query('SELECT nomDocument, nomEtagere FROM document LEFT JOIN etagere ON document.id_document = etagere.id_etagere');
+            $sel = $bdd->query('SELECT nomDocument, nomEtagere FROM document LEFT JOIN etagere ON document.id_document = etagere.id_etagere ORDER BY document.id_etagere');
             $documents = $sel->fetchAll();
             foreach($documents as $document){
                 ?>
-                  <p><?= $document['nomDocument'];?></p>
-                  <p><?= $document['nomEtagere'];?></p>
+                    <tr>
+                        <td><?= $document['nomDocument'];?></td>
+                        <td><?= $document['nomEtagere'];?></td>
+                    </tr>
                                   
         <?php
             };
-        ?>          
+        ?>     
+    </table> 
 
     </body>
