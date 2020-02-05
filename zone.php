@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
 
         <title>ARCHIVE</title>
     </head>
@@ -15,19 +16,29 @@
     </ul>
         
         <h1>Liste des zones</h1>
+
+        <table>
+                    <tr>
+                        <th>Nom de la zone</th>
+                        <th>Nom du lieu de stockage</th>
+                    </tr>
         <?php
             include 'connexion.php';  
              
-            $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage');
+            $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage ORDER BY zone.id_stockage');
             $zoness = $sel->fetchAll();
             foreach($zoness as $zone){
                 ?>
-                  <p><?= $zone['nomZone'];?></p>
-                  <p><?= $zone['nomStockage'];?></p>
+                <tr>
+                  <td><?= $zone['nomZone'];?></td>
+                  <td><?= $zone['nomStockage'];?></td>
+                </tr>
                                   
         <?php
             };
-        ?>          
+        ?>  
+
+        </table>
 
     </body>
 

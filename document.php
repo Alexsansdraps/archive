@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
 
         <title>ARCHIVE</title>
     </head>
@@ -11,16 +12,17 @@
     <body>
     <ul class="index">
         <li><a href="index.php">Accueil</a></li>
-        <li><a href="admin.php">Admins</a></li>
+        <li><a href="admin.php">Admin</a></li>
     </ul>
 
+    <h1>Liste des documents</h1>
     <table>
                     <tr>
                         <th>Nom du document</th>
                         <th>Nom de l'étagère</th>
                     </tr>
         
-        <h1>Liste des documents</h1>
+        
         <?php
             include 'connexion.php';  
              
