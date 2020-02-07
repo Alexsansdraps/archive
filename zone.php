@@ -25,7 +25,8 @@
         <?php
             include 'connexion.php';  
              
-            $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage ORDER BY zone.id_stockage');
+            $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone 
+            LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage ORDER BY zone.id_stockage');
             $zoness = $sel->fetchAll();
             foreach($zoness as $zone){
                 ?>

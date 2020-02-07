@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
 
-        <title>ARCHIVE</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
 
-    <body>
-        <?php
+    <title>ARCHIVE</title>
+</head>
+
+<body>
+    <!-- liste des personnes-->
+    <?php
             include 'connexion.php';   
         ?>
-        <ul class="index">
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="admin.php">Admin</a></li>
-        </ul>
-        
-        <h1>AFFICHER</h1>
-        <?php
+    <ul class="index">
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="admin.php">Admin</a></li>
+    </ul>
+
+    <h1>AFFICHER</h1>
+    <?php
 
             include 'connexion.php';
 
@@ -39,10 +41,10 @@
                     <br>';
             };
         ?>
+    <!-- ajouter les traitement-->
+    <h1>Ajouter traitement</h1>
 
-        <h1>Ajouter traitement</h1>
-
-        <form method="post" action="add-traitement.php">
+    <form method="post" action="add-traitement.php">
         <?php
                       $sql = "SELECT id_personne, nomPersonne, prenomPersonne FROM personne";
                       $perso = $bdd->prepare($sql);
@@ -50,42 +52,149 @@
                       
                 ?>
 
-                <p>Nom de la personne :</p>
-                  <select name="pers" id="pers_select">
-                  
-                      <?php foreach ($perso as $row) { ?>
-                        
-                      <option value=" <?php echo $row['id_personne']; ?> ">
-                      <?php echo $row['id_personne']; ?>
-                        
-                        <?php echo $row['nomPersonne']; ?>
-                        <?php echo $row['prenomPersonne']; ?>
-                      </option>
-                      <?php } ?>
-                  </select>
+        <p>Nom de la personne :</p>
+        <select name="pers" id="pers_select">
+
+            <?php foreach ($perso as $row) { ?>
+
+            <option value=" <?php echo $row['id_personne']; ?> ">
+                <?php echo $row['id_personne']; ?>
+
+                <?php echo $row['nomPersonne']; ?>
+                <?php echo $row['prenomPersonne']; ?>
+            </option>
+            <?php } ?>
+        </select>
 
 
-                  <?php
+        <?php
                       $sqls = "SELECT id_document, nomDocument FROM document";
                       $docu = $bdd->prepare($sqls);
                       $docu->execute();
                       
                 ?>
-                  <p>nom du document :</p>
-                  <select name="docu" id="docu_select">
-                  
-                      <?php foreach ($docu as $rows) { ?>
-                        
-                      <option value=" <?php echo $rows['id_document']; ?> ">
-                      <?php echo $rows['id_document']; ?>
-                        
-                        <?php echo $rows['nomDocument']; ?>
-                      </option>
-                      <?php } ?>
-                  </select>
+        <p>nom du document :</p>
+        <select name="docu" id="docu_select">
 
-                  <button type="submit">Envoyer</button>
-        </form>
+            <?php foreach ($docu as $rows) { ?>
 
-    </body>
+            <option value=" <?php echo $rows['id_document']; ?> ">
+                <?php echo $rows['id_document']; ?>
 
+                <?php echo $rows['nomDocument']; ?>
+            </option>
+            <?php } ?>
+        </select>
+
+        <button type="submit">Envoyer</button>
+    </form>
+    <!-- afficher les traitement-->
+    <h1>Liste des traitements</h1>
+
+    <table>
+        <tr>
+            <th>Nom de la personne</th>
+            <th>Prénom de la personne</th>
+            <th>Nom du document</th>
+        </tr>
+        <?php
+            include 'connexion.php';  
+             
+            $tab = $bdd->query('SELECT nomPersonne, prenomPersonne, nomDocument FROM traiter 
+                                JOIN personne on personne.id_personne = traiter.id_personne 
+                                JOIN document on document.id_document = traiter.id_document');
+            $trait = $tab->fetchAll();
+            foreach($trait as $trai){
+                ?>
+        <tr>
+            <td><?= $trai['nomPersonne'];?></td>
+            <td><?= $trai['prenomPersonne'];?></td>
+            <td><?= $trai['nomDocument'];?></td>
+        </tr>
+
+        <?php
+            };
+        ?>
+
+    </table>
+
+    <!--ajouter des affectations-->
+    <h1>Ajouter traitement</h1>
+
+    <form method="post" action="add-affectation.php">
+        <?php
+                      $sql = "SELECT id_personne, nomPersonne, prenomPersonne FROM personne";
+                      $perso = $bdd->prepare($sql);
+                      $perso->execute();
+                      
+                ?>
+
+        <p>Nom de la personne :</p>
+        <select name="perso" id="perso_select">
+
+            <?php foreach ($perso as $row) { ?>
+
+            <option value=" <?php echo $row['id_personne']; ?> ">
+                <?php echo $row['id_personne']; ?>
+
+                <?php echo $row['nomPersonne']; ?>
+                <?php echo $row['prenomPersonne']; ?>
+            </option>
+            <?php } ?>
+        </select>
+
+
+        <?php
+                      $sqls = "SELECT id_zone, nomZone FROM zone";
+                      $zon = $bdd->prepare($sqls);
+                      $zon->execute();
+                      
+                ?>
+        <p>nom de la zone :</p>
+        <select name="zon" id="zon_select">
+
+            <?php foreach ($zon as $rows) { ?>
+
+            <option value=" <?php echo $rows['id_zone']; ?> ">
+                <?php echo $rows['id_zone']; ?>
+
+                <?php echo $rows['nomZone']; ?>
+            </option>
+            <?php } ?>
+        </select>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <!--afficher les affectations-->
+
+    <h1>Liste des affectations</h1>
+
+    <table>
+        <tr>
+            <th>Nom de la personne</th>
+            <th>Prénom de la personne</th>
+            <th>Nom de la zone</th>
+        </tr>
+        <?php
+    include 'connexion.php';  
+     
+    $tab = $bdd->query('SELECT nomPersonne, prenomPersonne, nomZone FROM affecter 
+                        JOIN personne on personne.id_personne = affecter.id_personne 
+                        JOIN zone on zone.id_zone = affecter.id_zone');
+    $aff = $tab->fetchAll();
+    foreach($aff as $af){
+        ?>
+        <tr>
+            <td><?= $af['nomPersonne'];?></td>
+            <td><?= $af['prenomPersonne'];?></td>
+            <td><?= $af['nomZone'];?></td>
+        </tr>
+
+        <?php
+    };
+?>
+
+    </table>
+
+</body>
