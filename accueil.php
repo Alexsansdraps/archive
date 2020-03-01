@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
+{
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -15,8 +21,14 @@
             include 'connexion.php';
         ?>
     <ul class="index">
-        <li><a href="index.php">Accueil</a></li>
+        <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
+        <li><a href="logout.php">Se déconnecter <?php
+                            if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
+                            {
+                                echo $_SESSION['pseudo'];
+                            } ?>
+            </a></li>
     </ul>
     <h1>Archive Dep08</h1>
     <!-- ajouter personne-->
@@ -43,6 +55,14 @@
             <tr>
                 <td>Téléphone</td>
                 <td><input type="text" name="telephone" placeholder="Ex :  00 00 00 00 00"></td>
+            </tr>
+            <tr>
+                <td>Pseudo</td>
+                <td><input type="text" name="pseudo" placeholder="Ex :  ricky"></td>
+            </tr>
+            <tr>
+                <td>Mot de passe</td>
+                <td><input type="password" name="mdp" placeholder="Ex :  *********"></td>
             </tr>
         </table>
         <button type="submit">Envoyer</button>
@@ -137,3 +157,6 @@
     <a href="etagere.php">Voir</a>
 
 </body>
+</html>
+<?php } else { header("Location: index.php");
+ } ?>

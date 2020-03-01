@@ -16,7 +16,7 @@
             include 'connexion.php';   
         ?>
     <ul class="index">
-        <li><a href="index.php">Accueil</a></li>
+        <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
     </ul>
 

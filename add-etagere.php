@@ -10,5 +10,5 @@ $req->execute(array(
     'id_zone' => $etagere,
   ));
 
-  header("location:index.php");
+  header("location:accueil.php");
 ?>
