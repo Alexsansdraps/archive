@@ -15,11 +15,13 @@
             include 'connexion.php';
         ?>
 
-    <h1>connexion</h1>
-        <form class="login-form" method="POST" action="login.php">
-        <input type="text" placeholder="pseudo" id="pseudo1" name="pseudo1"/>
-        <input type="password" placeholder="Mdp" id="pass1" name="pass1"/>
-        <button>connexion</button>
-        </form>
+    <div class="conn">
+        <h1>Connexion</h1>
+            <form class="login-form" method="POST" action="login.php">
+            <input type="text" placeholder="pseudo" id="pseudo1" name="pseudo1"/>
+            <input type="password" placeholder="Mdp" id="pass1" name="pass1"/>
+            <button>connexion</button>
+            </form>
+    </div>
 </body>
 </html>
