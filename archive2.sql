@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 29 fév. 2020 à 18:26
+-- Généré le :  ven. 06 mars 2020 à 11:56
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP :  7.4.1
 
@@ -130,20 +130,22 @@ CREATE TABLE `personne` (
   `mail` varchar(200) NOT NULL,
   `telephone` varchar(200) NOT NULL,
   `pseudo` varchar(255) DEFAULT NULL,
-  `mot-de-passe` varchar(255) DEFAULT NULL
+  `mdp` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `personne`
 --
 
-INSERT INTO `personne` (`id_personne`, `nomPersonne`, `prenomPersonne`, `adresse`, `mail`, `telephone`, `pseudo`, `mot-de-passe`) VALUES
+INSERT INTO `personne` (`id_personne`, `nomPersonne`, `prenomPersonne`, `adresse`, `mail`, `telephone`, `pseudo`, `mdp`) VALUES
 (1, 'brownss', 'jason', '1 rue du nflss', 'jbrown@mail.fr', '01 23 58 69 97', NULL, NULL),
 (2, 'petitss', 'romain', '4 rue du rugbys', 'rpetit1234@mail.fr', '04 45 62 32 57', NULL, NULL),
 (9, 'DECUYPER', 'romain', '24 Avenue du Général Margueritte', 'decuyper@mail.net', '02 89 56 23 48', NULL, NULL),
 (11, 'fff', 'romain', '24 Avenue du Général Margueritte', 'rpetit@mail.fr', '02 89 56 23 47', NULL, NULL),
 (15, 'george', 'bob', '24 Avenue du Général Margueritte', 'george@mail.net', '02 89 56 23 48', NULL, NULL),
-(16, 'bob', 'bobby', '24 Avenue du Général Margueritte', 'bob@mail.fr', '02 36 65 85 96', NULL, NULL);
+(16, 'bob', 'bobby', '24 Avenue du Général Margueritte', 'bob@mail.fr', '02 36 65 85 96', NULL, NULL),
+(17, 'gegege', 'cferf', 'fqqrfqrsgf', 'rfsqqrsf', 'frsqfrsqfq', NULL, NULL),
+(21, 'ANTOINE', 'jérémy', '24 Avenue du Général Margueritte', 'sunjianàlive.fr', '06 60 29 91 24', 'sunjian', '$2y$10$EIFBXxbaaFJYDSf1aLybB.lMzThlydJO0XlFTzSmeJKsgNwEiTi4a');
 
 -- --------------------------------------------------------
 
@@ -275,7 +277,7 @@ ALTER TABLE `lieustockage`
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `traiter2`
