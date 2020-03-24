@@ -1,9 +1,11 @@
+
 <?php
 session_start();
 if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
 {
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,11 +14,16 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>ARCHIVE</title>
 </head>
 
-<body>
+
+<body  class="<?php if(isset($_COOKIE['bg'])){
+    echo $_COOKIE['bg'];};?>">
+
     <?php
             include 'connexion.php';
         ?>
@@ -30,6 +37,40 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             } ?>
             </a></li>
     </ul>
+
+    <?php
+ // After submitting the form we do not yet have the cookie set, but we can learn desired color from form submission
+//  if ($_COOKIE["color"] || $_GET['color'])
+//    $bgcolor=$_COOKIE["color"] ? $_COOKIE["color"] : $_GET['color'];
+//  else
+//    $bgcolor="FFFBFB";
+//  echo "<body bgcolor='$bgcolor'>";
+
+if(!isset($_COOKIE['bg'])) {
+    echo "
+    <h3>choisir le fond d'ecran</h3>
+    <a  href='cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
+    <a  href='cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
+    <a  href='cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
+};
+?>
+
+    <?php
+//  if (!($_COOKIE["color"] || $_GET['color'])) {
+//    echo "We noticed you have not selected a background color. Please select from one of the options below.<p>";
+//    echo "
+// <form>
+//   Background Color<p>
+
+// <input type='radio' name='color' value='pink'><font color='pink'>pink</font><p>
+// <input type='radio' name='color' value='lightblue'><font color='lightblue'>light blue</font><p>
+// <input type='radio' name='color' value='lightgreen'><font color='lightgreen'>light green</font><p>
+// <input type='submit'>
+// </form>
+//   ";
+//  }
+ 
+ ?>
     <h1>Archive Dep08</h1>
 
     <div class="p1">

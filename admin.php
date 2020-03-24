@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
@@ -12,11 +13,15 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>ARCHIVE</title>
 </head>
 
-<body>
+
+<body  class="<?php if(isset($_COOKIE['bg'])){
+    echo $_COOKIE['bg'];};?>">
     <!-- liste des personnes-->
     <?php
             include 'connexion.php';   
@@ -31,6 +36,18 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             } ?>
             </a></li>
     </ul>
+
+    <?php
+
+
+if(!isset($_COOKIE['bg'])) {
+    echo "
+    <h3>choisir le fond d'ecran</h3>
+    <a  href='cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
+    <a  href='cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
+    <a  href='cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
+};
+?>
 
     <h1>AFFICHER</h1>
     <?php

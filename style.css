@@ -75,16 +75,16 @@ h1
 
 .p1{
     
-    height: 25em;
-    margin: 0 auto;
-    padding: 1em;
-    width: 50em;
+    height: 35em!important;
+    margin: 0 auto!important;
+    padding: 1em!important;
+    width: 50em!important;
 }
 
 .p1 .sp1{
     margin: 0 auto;  
     float: left;
-    height: 20em;
+    height: 27em;
     width: 20em;
     padding: 2em;
     border: 1px black solid;
