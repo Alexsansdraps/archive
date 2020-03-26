@@ -5,6 +5,6 @@ session_start();
 $_SESSION = array();
 session_destroy();
 
-echo "Vous êtes maintenant déconnecté <a href=\"index.php\">connectez vous</a>";
+echo "Vous êtes maintenant déconnecté <a href=\"../index.php\">connectez vous</a>";
 
 ?>

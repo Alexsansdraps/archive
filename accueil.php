@@ -13,7 +13,7 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -25,12 +25,12 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     echo $_COOKIE['bg'];};?>">
 
     <?php
-            include 'connexion.php';
+            include 'function/connexion.php';
         ?>
     <ul class="index">
         <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
-        <li><a href="logout.php">Se déconnecter <?php
+        <li><a href="function/logout.php">Se déconnecter <?php
                             if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             {
                                 echo $_SESSION['pseudo'];
@@ -49,9 +49,9 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
 if(!isset($_COOKIE['bg'])) {
     echo "
     <h3>choisir le fond d'ecran</h3>
-    <a  href='cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
-    <a  href='cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
-    <a  href='cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
+    <a  href='function/cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
+    <a  href='function/cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
+    <a  href='function/cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
 };
 ?>
 
@@ -78,7 +78,7 @@ if(!isset($_COOKIE['bg'])) {
             <!-- ajouter personne-->
             <h2>Ajouter Personne</h2>
 
-            <form method="post" action="add-person.php">
+            <form method="post" action="function/add-person.php">
                 <table class="t1">
                     <tr>
                         <td>nom</td>
@@ -119,7 +119,7 @@ if(!isset($_COOKIE['bg'])) {
             <!-- ajouter document-->
             <h2>Ajouter Document</h2>
 
-            <form method="post" action="add-doc.php">
+            <form method="post" action="function/add-doc.php">
                 <p>Sélectionner votre étagères</p>
                 <?php
                             $sql = "SELECT id_etagere, nomEtagere FROM etagere";
@@ -154,7 +154,7 @@ if(!isset($_COOKIE['bg'])) {
             <!-- ajouter zone -->
             <h2>Ajouter Zone</h2>
 
-            <form method="post" action="add-zone.php">
+            <form method="post" action="function/add-zone.php">
                 <p>Sélectionner votre lieu de stockage</p>
                 <?php
                         $sqls = "SELECT id_stockage, nomStockage FROM lieustockage";
@@ -185,7 +185,7 @@ if(!isset($_COOKIE['bg'])) {
             <!--ajouter etagere-->
             <h2>Ajouter Etagère</h2>
 
-            <form method="post" action="add-etagere.php">
+            <form method="post" action="function/add-etagere.php">
                 <p>Sélectionner votre zone</p>
                 <?php
                     $sql = "SELECT id_zone, nomZone FROM zone";

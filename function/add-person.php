@@ -23,5 +23,5 @@ $req->execute(array(
 
 
 ));
-  header("location:accueil.php");
+  header("location:../accueil.php");
 ?>

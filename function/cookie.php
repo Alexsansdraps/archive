@@ -2,7 +2,7 @@
 include 'connexion.php';
 
 setcookie('bg', $_GET['color'], time() + (86400 * 30), "/");
- header("location:accueil.php");
+ header("location:../accueil.php");
 // cookies have to be handled before any html coding...
 // $color = $_GET['color'];
 // $_COOKIE["color"] = null;

@@ -25,11 +25,11 @@ else
         session_start();
         $_SESSION['id_personne'] = $resultat['id_personne'];
         $_SESSION['pseudo'] = $pseudo;
-        header("Location: accueil.php");
+        header("Location: ../accueil.php");
     }
     else {
         echo 'Mauvais identifiant ou mot de passe !';
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
 }
 ?>

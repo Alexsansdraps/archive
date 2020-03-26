@@ -12,7 +12,7 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -24,12 +24,12 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     echo $_COOKIE['bg'];};?>">
     <!-- liste des personnes-->
     <?php
-            include 'connexion.php';   
+            include 'function/connexion.php';   
         ?>
     <ul class="index">
         <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
-        <li><a href="logout.php">Se déconnecter <?php
+        <li><a href="function/logout.php">Se déconnecter <?php
                             if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             {
                                 echo $_SESSION['pseudo'];
@@ -43,16 +43,16 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
 if(!isset($_COOKIE['bg'])) {
     echo "
     <h3>choisir le fond d'ecran</h3>
-    <a  href='cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
-    <a  href='cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
-    <a  href='cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
+    <a  href='function/cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
+    <a  href='function/cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
+    <a  href='function/cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
 };
 ?>
 
     <h1>AFFICHER</h1>
     <?php
 
-            include 'connexion.php';
+            include 'function/connexion.php';
 
             $sel = $bdd->query('SELECT id_personne, nomPersonne, prenomPersonne, adresse, mail, telephone FROM personne ORDER BY id_personne');
             $personnes=$sel->fetchAll();
@@ -67,14 +67,14 @@ if(!isset($_COOKIE['bg'])) {
                     <button type="submit">Envoyer</button>
                 </form>
 
-                    <a href="delete.php?id=<?= $personne['id_personne'] ?>">supprimer</a>
+                    <a href="function/delete.php?id=<?= $personne['id_personne'] ?>">supprimer</a>
                     
             </div>
           <?php  }; ?>
     <!-- ajouter les traitement-->
     <h1>Ajouter traitement</h1>
         <div class="p2">
-            <form method="post" action="add-traitement.php">
+            <form method="post" action="function/add-traitement.php">
                 <?php
                     $sql = "SELECT id_personne, nomPersonne, prenomPersonne FROM personne";
                     $perso = $bdd->prepare($sql);
@@ -126,7 +126,7 @@ if(!isset($_COOKIE['bg'])) {
             <th></th>
         </tr>
         <?php
-                include 'connexion.php';  
+                include 'function/connexion.php';  
                 
                 $tab = $bdd->query('SELECT id, nomPersonne, prenomPersonne, nomDocument FROM traiter2
                                       
@@ -140,7 +140,7 @@ if(!isset($_COOKIE['bg'])) {
             <td><?= $trai['nomPersonne'];?></td>
             <td><?= $trai['prenomPersonne'];?></td>
             <td><?= $trai['nomDocument'];?></td>
-            <td><a href="delete-traitement.php?id=<?= $trai['id']; ?>">supprimer</a></td>
+            <td><a href="function/delete-traitement.php?id=<?= $trai['id']; ?>">supprimer</a></td>
         </tr>
 
         <?php
@@ -153,7 +153,7 @@ if(!isset($_COOKIE['bg'])) {
     <h1>Ajouter affectations</h1>
         <div class="p2">
 
-            <form method="post" action="add-affectation.php">
+            <form method="post" action="function/add-affectation.php">
                 <?php
                             $sql = "SELECT id_personne, nomPersonne, prenomPersonne FROM personne";
                             $perso = $bdd->prepare($sql);
@@ -211,7 +211,7 @@ if(!isset($_COOKIE['bg'])) {
             <th></th>
         </tr>
         <?php
-    include 'connexion.php';  
+    include 'function/connexion.php';  
      
     $tab = $bdd->query('SELECT id_affecter, nomPersonne, prenomPersonne, nomZone FROM affecter2
                         JOIN personne on personne.id_personne = affecter2.id_personne 
@@ -223,7 +223,7 @@ if(!isset($_COOKIE['bg'])) {
             <td><?= $af['nomPersonne'];?></td>
             <td><?= $af['prenomPersonne'];?></td>
             <td><?= $af['nomZone'];?></td>
-            <td><a href="delete-affectation.php?id_affecter=<?= $af['id_affecter']; ?>">supprimer</a></td>
+            <td><a href="function/delete-affectation.php?id_affecter=<?= $af['id_affecter']; ?>">supprimer</a></td>
         </tr>
 
         <?php

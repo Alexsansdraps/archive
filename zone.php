@@ -10,7 +10,7 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <title>ARCHIVE</title>
     </head>
@@ -19,7 +19,7 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
     <ul class="index">
         <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
-        <li><a href="logout.php">Se déconnecter <?php
+        <li><a href="function/logout.php">Se déconnecter <?php
                             if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             {
                                 echo $_SESSION['pseudo'];
@@ -35,7 +35,7 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                         <th>Nom du lieu de stockage</th>
                     </tr>
         <?php
-            include 'connexion.php';  
+            include 'function/connexion.php';  
              
             $sel = $bdd->query('SELECT nomZone, nomStockage FROM zone 
             LEFT JOIN lieustockage ON zone.id_zone = lieustockage.id_stockage ORDER BY zone.id_stockage');

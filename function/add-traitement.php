@@ -11,5 +11,5 @@ $req->execute(array(
     'id_document' => $nomDocument,
   ));
 
-  header("location:accueil.php");
+  header("location:../admin.php");
 ?>

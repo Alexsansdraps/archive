@@ -10,5 +10,5 @@ $req->execute(array(
     'id_etagere' => $doc,
   ));
 
-  header("location:accueil.php");
+  header("location:../accueil.php");
 ?>

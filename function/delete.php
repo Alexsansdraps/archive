@@ -8,5 +8,5 @@ $bdd->query("UPDATE personne SET id_personne=NULL WHERE id_personne='$current_id
 $bdd->query("DELETE FROM personne WHERE id_personne = '$current_id'");
 
 
-header("location:admin.php");
+header("location:../admin.php");
 ?>
