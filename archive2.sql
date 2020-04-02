@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 06 mars 2020 à 11:56
+-- Généré le :  jeu. 02 avr. 2020 à 15:26
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP :  7.4.1
 
@@ -42,7 +42,8 @@ INSERT INTO `affecter2` (`id_affecter`, `id_personne`, `id_zone`) VALUES
 (2, 2, 2),
 (26, 1, 3),
 (27, 1, 2),
-(28, 2, 3);
+(29, 11, 1),
+(30, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,11 @@ INSERT INTO `document` (`id_document`, `nomDocument`, `id_etagere`) VALUES
 (21, 'peleliu', 1),
 (22, 'ccccc', 3),
 (23, 'bob', 3),
-(24, 'ddddd', 3);
+(24, 'ddddd', 3),
+(25, 'bataille de nassau', 5),
+(26, 'bataille de nassau', 5),
+(27, 'baba yaga', 4),
+(28, 'offensive', 7);
 
 -- --------------------------------------------------------
 
@@ -96,7 +101,10 @@ INSERT INTO `etagere` (`id_etagere`, `nomEtagere`, `id_zone`) VALUES
 (1, '1941-est', 1),
 (2, '1942-pacifique', 2),
 (3, '1943-afrique', 3),
-(4, 'new', 3);
+(4, 'new', 3),
+(5, 'piraterie', 5),
+(6, 'raid', 5),
+(7, '1942-phillipines', 1);
 
 -- --------------------------------------------------------
 
@@ -140,12 +148,12 @@ CREATE TABLE `personne` (
 INSERT INTO `personne` (`id_personne`, `nomPersonne`, `prenomPersonne`, `adresse`, `mail`, `telephone`, `pseudo`, `mdp`) VALUES
 (1, 'brownss', 'jason', '1 rue du nflss', 'jbrown@mail.fr', '01 23 58 69 97', NULL, NULL),
 (2, 'petitss', 'romain', '4 rue du rugbys', 'rpetit1234@mail.fr', '04 45 62 32 57', NULL, NULL),
-(9, 'DECUYPER', 'romain', '24 Avenue du Général Margueritte', 'decuyper@mail.net', '02 89 56 23 48', NULL, NULL),
 (11, 'fff', 'romain', '24 Avenue du Général Margueritte', 'rpetit@mail.fr', '02 89 56 23 47', NULL, NULL),
 (15, 'george', 'bob', '24 Avenue du Général Margueritte', 'george@mail.net', '02 89 56 23 48', NULL, NULL),
 (16, 'bob', 'bobby', '24 Avenue du Général Margueritte', 'bob@mail.fr', '02 36 65 85 96', NULL, NULL),
 (17, 'gegege', 'cferf', 'fqqrfqrsgf', 'rfsqqrsf', 'frsqfrsqfq', NULL, NULL),
-(21, 'ANTOINE', 'jérémy', '24 Avenue du Général Margueritte', 'sunjianàlive.fr', '06 60 29 91 24', 'sunjian', '$2y$10$EIFBXxbaaFJYDSf1aLybB.lMzThlydJO0XlFTzSmeJKsgNwEiTi4a');
+(21, 'ANTOINE', 'jérémy', '24 Avenue du Général Margueritte', 'sunjianàlive.fr', '06 60 29 91 24', 'sunjian', '$2y$10$EIFBXxbaaFJYDSf1aLybB.lMzThlydJO0XlFTzSmeJKsgNwEiTi4a'),
+(22, 'flint', 'james', 'nassau', 'flint@mail.net', '01 00 23 54 78', 'flifli', '$2y$10$/0GFCydF9jvo63dk2SErZ.z3vlDuAL.DqHb4iX1uhOF450aG1biBO');
 
 -- --------------------------------------------------------
 
@@ -190,7 +198,8 @@ INSERT INTO `zone` (`id_zone`, `nomZone`, `id_stockage`) VALUES
 (1, 'front de l\'est', 1),
 (2, 'pacifique', 1),
 (3, 'afrique', 1),
-(4, 'gor', 1);
+(4, 'gor', 1),
+(5, 'pirates', 1);
 
 --
 -- Index pour les tables déchargées
@@ -253,19 +262,19 @@ ALTER TABLE `zone`
 -- AUTO_INCREMENT pour la table `affecter2`
 --
 ALTER TABLE `affecter2`
-  MODIFY `id_affecter` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_affecter` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `document`
 --
 ALTER TABLE `document`
-  MODIFY `id_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_document` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT pour la table `etagere`
 --
 ALTER TABLE `etagere`
-  MODIFY `id_etagere` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_etagere` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `lieustockage`
@@ -277,19 +286,19 @@ ALTER TABLE `lieustockage`
 -- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `traiter2`
 --
 ALTER TABLE `traiter2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `zone`
 --
 ALTER TABLE `zone`
-  MODIFY `id_zone` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_zone` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
