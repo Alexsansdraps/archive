@@ -17,7 +17,6 @@ $isPasswordCorrect = password_verify($_POST['pass1'], $resultat['mdp']);
 if (!$resultat)
 {
     echo 'Mauvais identifiant ou mot de passe !';
-
 }
 else
 {

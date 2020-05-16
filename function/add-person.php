@@ -20,8 +20,7 @@ $req->execute(array(
     'telephone' => $telephone,
     'pseudo' => $pseudo,
     'mdp' => $mdp,
-
-
 ));
   header("location:../accueil.php");
 ?>
+
