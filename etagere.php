@@ -37,7 +37,11 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
         <?php
             include 'function/connexion.php';  
              
-            $sel = $bdd->query('SELECT nomEtagere, nomZone FROM etagere LEFT JOIN zone ON etagere.id_etagere = zone.id_zone ORDER BY etagere.id_zone');
+            $sel = $bdd->query('SELECT nomEtagere, nomZone 
+                                FROM etagere 
+                                LEFT JOIN zone 
+                                ON etagere.id_zone = zone.id_zone 
+                                ORDER BY etagere.id_zone');
             $etageres = $sel->fetchAll();
             foreach($etageres as $etagere){
                 ?>

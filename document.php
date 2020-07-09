@@ -38,7 +38,11 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
         <?php
             include 'function/connexion.php';  
              
-            $sel = $bdd->query('SELECT nomDocument, nomEtagere FROM document LEFT JOIN etagere ON document.id_etagere = etagere.id_etagere ORDER BY document.id_etagere');
+            $sel = $bdd->query('SELECT nomDocument, nomEtagere 
+                                FROM document 
+                                LEFT JOIN etagere 
+                                ON document.id_etagere = etagere.id_etagere 
+                                ORDER BY document.id_etagere');
             $documents = $sel->fetchAll();
             foreach($documents as $document){
                 ?>
