@@ -1,44 +1,7 @@
 
-<?php
-session_start();
-if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
-{
-
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>ARCHIVE</title>
-</head>
+<?php require_once './header.php'; 
 
 
-<body  class="<?php if(isset($_COOKIE['bg'])){
-    echo $_COOKIE['bg'];};?>">
-
-    <?php
-            include 'function/connexion.php';
-        ?>
-    <ul class="index">
-        <li><a href="accueil.php">Accueil</a></li>
-        <li><a href="admin.php">Admin</a></li>
-        <li><a href="function/logout.php">Se déconnecter <?php
-                            if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
-                            {
-                                echo $_SESSION['pseudo'];
-                            } ?>
-            </a></li>
-    </ul>
-
-    <?php
  // After submitting the form we do not yet have the cookie set, but we can learn desired color from form submission
 //  if ($_COOKIE["color"] || $_GET['color'])
 //    $bgcolor=$_COOKIE["color"] ? $_COOKIE["color"] : $_GET['color'];
@@ -215,5 +178,3 @@ if(!isset($_COOKIE['bg'])) {
 </body>
 
 </html>
-<?php } else { header("Location: index.php");
- } ?>
