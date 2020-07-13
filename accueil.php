@@ -9,13 +9,13 @@
 //    $bgcolor="FFFBFB";
 //  echo "<body bgcolor='$bgcolor'>";
 
-if(!isset($_COOKIE['bg'])) {
-    echo "
-    <h3>choisir le fond d'ecran</h3>
-    <a  href='function/cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
-    <a  href='function/cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
-    <a  href='function/cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
-};
+// if(!isset($_COOKIE['bg'])) {
+//     echo "
+//     <h3>choisir le fond d'ecran</h3>
+//     <a  href='function/cookie.php?color=bg-success' class='btn btn-success'>VERT</a>
+//     <a  href='function/cookie.php?color=bg-primary' class='btn btn-primary'>BLEU</a>
+//     <a  href='function/cookie.php?color=bg-danger' class='btn btn-danger'>ROUGE</a>";
+// };
 ?>
 
     <?php
@@ -35,45 +35,12 @@ if(!isset($_COOKIE['bg'])) {
  
  ?>
     <h1>Archive Dep08</h1>
-
+    <?php // require(__DIR__ . '/views/include/flash'); ?>
     <div class="p1">
         <div class="sp1">
-            <!-- ajouter personne-->
             <h2>Ajouter Personne</h2>
 
-            <form method="post" action="function/add-person.php">
-                <table class="t1">
-                    <tr>
-                        <td>nom</td>
-                        <td><input type="text" name="nomPersonne" placeholder="Ex : bob"></td>
-                    </tr>
-                    <tr>
-                        <td>Prénom</td>
-                        <td><input type="text" name="prenomPersonne" placeholder="Ex : 20 ans"></td>
-                    </tr>
-                    <tr>
-                        <td>Adresse</td>
-                        <td><input type="text" name="adresse" placeholder="Ex : 1, rue des aubépines"></td>
-                    </tr>
-                    <tr>
-                        <td>Mail</td>
-                        <td><input type="text" name="mail" placeholder="Ex : bob@mail.net"></td>
-                    </tr>
-                    <tr>
-                        <td>Téléphone</td>
-                        <td><input type="text" name="telephone" placeholder="Ex :  00 00 00 00 00"></td>
-                    </tr>
-                    <tr>
-                        <td>Pseudo</td>
-                        <td><input type="text" name="pseudo" placeholder="Ex :  ricky"></td>
-                    </tr>
-                    <tr>
-                        <td>Mot de passe</td>
-                        <td><input type="password" name="mdp" placeholder="Ex :  *********"></td>
-                    </tr>
-                </table>
-                <button type="submit">Envoyer</button>
-            </form>
+            
 
             <a href="personne.php">Voir</a>
         </div>
@@ -82,32 +49,7 @@ if(!isset($_COOKIE['bg'])) {
             <!-- ajouter document-->
             <h2>Ajouter Document</h2>
 
-            <form method="post" action="function/add-doc.php">
-                <p>Sélectionner votre étagères</p>
-                <?php
-                            $sql = "SELECT id_etagere, nomEtagere FROM etagere";
-                            $statement = $bdd->prepare($sql);
-                            $statement->execute();
-                            // var_dump($statement);
-                        ?>
-
-                <select name="doc" id="doc_select">
-                    <?php foreach ($statement as $row) { ?>
-                    <option value=" <?php echo $row['id_etagere']; ?> ">
-                        <?php echo $row['id_etagere']; ?>
-                        étagère nom :
-                        <?php echo $row['nomEtagere']; ?>
-                    </option>
-                    <?php } ?>
-                </select>
-
-                <p>nom :</p>
-
-                <input type="text" name="nomDocument" placeholder="Ex : Normandie">
-                <br><br>
-
-                <button type="submit">Envoyer</button><br><br>
-            </form>
+            
             <a href="document.php">Voir</a>
         </div>
     </div>

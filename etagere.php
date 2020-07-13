@@ -1,21 +1,4 @@
-<?php
-session_start();
-if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
-{
 
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/style.css">
-
-        <title>ARCHIVE</title>
-    </head>
-
-    <body>
     <ul class="index">
         <li><a href="accueil.php">Accueil</a></li>
         <li><a href="admin.php">Admin</a></li>
@@ -57,5 +40,3 @@ if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
 
     </body>
     </html>
-<?php } else { header("Location: index.php");
- } ?>

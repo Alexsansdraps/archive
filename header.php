@@ -20,6 +20,9 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="accueil.php">Accueil</a>
     <a class="p-2 text-dark" href="admin.php">Admin</a>
+    <a class="p-2 text-dark" href="addpersonne.php">Add personne</a>
+    <a class="p-2 text-dark" href="allpersonne.php">all personne</a>
+    <a class="p-2 text-dark" href="adddocument.php">add document</a>
     <a class="p-2 text-dark" href="function/logout.php">déconnecter
     <?php if (isset($_SESSION['id_personne']) AND isset($_SESSION['pseudo']))
                             {

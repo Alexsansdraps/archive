@@ -1,7 +1,7 @@
 
 <?php require_once './header.php'; ?>
         
-        <h1>Liste des personnes</h1>
+        
 
         <table class="t2">
                     <tr>
